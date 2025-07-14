@@ -1,7 +1,7 @@
 import { getPage } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import { Metadata } from "next";
+
 
 // ✅ Correct way to type dynamic routes in the App Router
 export default async function Page({ params }: { params: { slug: string } }) {
