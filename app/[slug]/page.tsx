@@ -6,9 +6,8 @@ type Props = {
     params: { slug: string };
 };
 
-export default async function Page(props: Props) {
-    const slug = props.params.slug;
-
+export default async function Page({ params }: Props) {
+    const slug = params.slug;
     const page = await getPage(slug);
 
     if (!page) {
@@ -20,7 +19,7 @@ export default async function Page(props: Props) {
             <h1 className="text-2xl text-gray-600 mb-8">{page.title}</h1>
 
             {page.image && (
-                <div className="relative w-full max-w-3xl aspect-[4/5] mx-auto mb-10 ">
+                <div className="relative w-full max-w-3xl aspect-[4/5] mx-auto mb-10">
                     <Image
                         src={page.image}
                         alt={page.title}
