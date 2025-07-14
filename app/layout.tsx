@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 import { getPages } from "@/sanity/sanity-utils";
 import Header from "./components/header";
 
