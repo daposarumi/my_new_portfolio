@@ -23,6 +23,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Dapo Sarumi",
   description: "Web creator, writer and photographer",
+  icons: {
+    icon: 'profile photo.ico'
+  },
 };
 
 export default async function RootLayout({
