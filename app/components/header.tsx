@@ -20,7 +20,7 @@ export default function Header({ pages }: Props) {
                 {/* Logo / Name */}
                 <Link
                     href="/"
-                    className="text-4xl hover:text-gray-900 hover:font-bold transition-all duration-200"
+                    className="text-4xl hover:font-bold hover:text-black transition-all duration-200"
                 >
                     Dapo Sarumi
                 </Link>
@@ -40,7 +40,7 @@ export default function Header({ pages }: Props) {
                         <Link
                             key={page._id}
                             href={`/${page.slug}`}
-                            className="hover:underline hover:text-black transition-colors duration-200"
+                            className="hover:underline hover:text-black  transition-colors duration-200"
                         >
                             {page.title}
                         </Link>
@@ -51,7 +51,7 @@ export default function Header({ pages }: Props) {
                 {/* Hamburger Icon - Mobile */}
                 <button
                     onClick={() => setMenuOpen(true)}
-                    className="md:hidden text-gray-700"
+                    className="md:hidden"
                     aria-label="Open menu"
                 >
                     <Menu size={28} />
@@ -60,22 +60,22 @@ export default function Header({ pages }: Props) {
 
             {/* Sliding Side Menu - Mobile Only */}
             <div
-                className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"
+                className={`fixed top-0 left-0 h-full w-64 shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"
                     }`}
             >
                 <div className="p-4 flex items-center justify-between border-b">
-                    <span className="text-xl font-bold text-gray-700">Menu</span>
+                    <span className="text-xl font-bold">Menu</span>
                     <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
                         <X size={24} />
                     </button>
                 </div>
 
-                <nav className="flex flex-col p-4 space-y-4 text-gray-700 text-base">
+                <nav className="flex flex-col p-4 space-y-4 text-base">
                     {/* Add your static "Projects" link */}
                     <Link
                         href="/"
                         onClick={() => setMenuOpen(false)}
-                        className="hover:underline hover:text-black transition-colors duration-200"
+                        className="hover:underline transition-colors duration-200"
                     >
                         Projects
                     </Link>
@@ -86,7 +86,7 @@ export default function Header({ pages }: Props) {
                             key={page._id}
                             href={`/${page.slug}`}
                             onClick={() => setMenuOpen(false)}
-                            className="hover:underline hover:text-black transition-colors duration-200"
+                            className="hover:underline transition-colors duration-200"
                         >
                             {page.title}
                         </Link>
@@ -95,7 +95,7 @@ export default function Header({ pages }: Props) {
 
 
                 {/* Social Links */}
-                <div className="mt-6 flex justify-center gap-4 text-gray-400">
+                <div className="mt-6 flex justify-center gap-4 text-gray-500">
                     <a
                         href="https://twitter.com/adeomosarumi"
                         target="_blank"
