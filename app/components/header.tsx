@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Instagram, Twitter, Mail } from "lucide-react";
 import { Page } from "@/types/Page"; // Adjust this if needed
+import "../globals.css";
 
 type Props = {
     pages: Page[];
@@ -19,7 +20,7 @@ export default function Header({ pages }: Props) {
                 {/* Logo / Name */}
                 <Link
                     href="/"
-                    className="text-4xl text-gray-700 hover:text-gray-900 hover:font-bold transition-all duration-200"
+                    className="text-4xl text-black hover:text-gray-900 hover:font-bold transition-all duration-200"
                 >
                     Dapo Sarumi
                 </Link>

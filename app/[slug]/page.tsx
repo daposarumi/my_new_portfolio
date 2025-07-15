@@ -16,7 +16,7 @@ export default async function Page({ params }: Props) {
 
     return (
         <div>
-            <h1 className="text-2xl text-gray-600 mb-8">{page.title}</h1>
+            <h1 className="text-2xl mb-8">{page.title}</h1>
 
             {page.image && (
                 <div className="relative w-full max-w-3xl aspect-[4/5] mx-auto mb-10">
@@ -30,7 +30,7 @@ export default async function Page({ params }: Props) {
                 </div>
             )}
 
-            <div className="prose [&_a]:underline [&_a]:text-blue-600">
+            <div className="prose [&_a]:underline [&_a]:text-blue-400">
                 <PortableText value={page.content} />
             </div>
         </div>

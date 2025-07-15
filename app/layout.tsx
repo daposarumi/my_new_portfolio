@@ -42,28 +42,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.className} antialiased flex flex-col min-h-screen`}
       >
         <div className="flex-grow max-w-5xl mx-auto py-20 px-4 w-full">
-          {/* <header className="text-4xl text-gray-700 flex items-center justify-between">
-            <Link
-              href="/"
-              className="hover:text-gray-900 hover:font-bold transition-all duration-200"
-            >
-              Dapo Sarumi
-            </Link>
 
-            <div className="flex justify-center space-x-6 text-base text-gray-500">
-              {pages.map((page) => (
-                <Link
-                  key={page._id}
-                  href={`/${page.slug}`}
-                  className="hover:underline hover:text-black transition-colors duration-200"
-                >
-                  {page.title}
-                </Link>
-              ))}
-            </div>
-
-
-          </header> */}
           <Header pages={pages} />
 
           <hr className="mt-5" />

@@ -40,9 +40,9 @@ export default async function ProjectPage({ params }: Props) {
                 <>
                     <div className="lg:snap-start lg:shrink-0 lg:w-[40vw]">
                         <div className="max-w-xl">
-                            <h1 className="text-2xl text-gray-600 mb-6">{project.name}</h1>
+                            <h1 className="text-2xl mb-6">{project.name}</h1>
                             {project.content && (
-                                <div className="prose text-sm text-gray-700 [&_a]:underline [&_a]:text-blue-600">
+                                <div className="prose text-md [&_a]:underline [&_a]:text-blue-600">
                                     <PortableText value={project.content} />
                                 </div>
                             )}
@@ -84,7 +84,7 @@ export default async function ProjectPage({ params }: Props) {
                     )}
 
                     {project.content && (
-                        <div className="prose text-sm text-gray-700 [&_a]:underline [&_a]:text-blue-600">
+                        <div className="prose text-md text-gray-700 [&_a]:underline [&_a]:text-blue-600">
                             <PortableText value={project.content} />
                         </div>
                     )}
