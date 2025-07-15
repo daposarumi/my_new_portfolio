@@ -11,7 +11,6 @@ type Props = {
 export default async function ProjectPage({ params }: Props) {
     const { slug, category } = await params;
 
-
     const project: Project | null = await getProjectBySlug(slug);
     if (!project) return notFound();
 
@@ -32,14 +31,14 @@ export default async function ProjectPage({ params }: Props) {
         <div
             className={
                 isDocPhoto
-                    ? "overflow-x-auto snap-x snap-mandatory flex h-screen"
+                    ? "flex flex-col gap-6 lg:flex-row lg:overflow-x-auto lg:snap-x lg:snap-mandatory lg:h-screen"
                     : "flex flex-col gap-6"
             }
         >
-            {/* 📸 DOCUMENTARY PHOTO — Horizontal Gallery */}
+            {/* 📸 DOCUMENTARY PHOTO — Horizontal on lg+, Vertical on small */}
             {isDocPhoto && (
                 <>
-                    <div className="snap-start shrink-0 w-[40vw] flex">
+                    <div className="lg:snap-start lg:shrink-0 lg:w-[40vw]">
                         <div className="max-w-xl">
                             <h1 className="text-2xl text-gray-600 mb-6">{project.name}</h1>
                             {project.content && (
@@ -53,21 +52,21 @@ export default async function ProjectPage({ params }: Props) {
                     {galleryImages.map((imgObj, index) => (
                         <div
                             key={index}
-                            className="relative gap-4 snap-start shrink-0 w-[85vw] h-full"
+                            className="relative w-full aspect-[4/3] lg:aspect-auto lg:snap-start lg:shrink-0 lg:w-[85vw] lg:h-full"
                         >
                             <Image
                                 src={imgObj.asset.url}
                                 alt={`${project.name} image ${index + 1}`}
                                 fill
                                 className="object-contain"
-                                sizes="85vw"
+                                sizes="(max-width: 1024px) 100vw, 85vw"
                             />
                         </div>
                     ))}
                 </>
             )}
 
-            {/* 📄 NON-DOCUMENTARY — Title, Image, Then Text */}
+            {/* 📄 NON-DOCUMENTARY — Normal vertical layout */}
             {!isDocPhoto && (
                 <>
                     <h1 className="text-2xl text-gray-600 mb-6">{project.name}</h1>

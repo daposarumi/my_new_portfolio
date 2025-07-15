@@ -26,6 +26,15 @@ export default function Header({ pages }: Props) {
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex space-x-6 text-base text-gray-500">
+                    {/* Static "Projects" link */}
+                    <Link
+                        href="/"
+                        className="hover:underline hover:text-black transition-colors duration-200"
+                    >
+                        Projects
+                    </Link>
+
+                    {/* Dynamically rendered pages */}
                     {pages.map((page) => (
                         <Link
                             key={page._id}
@@ -36,6 +45,7 @@ export default function Header({ pages }: Props) {
                         </Link>
                     ))}
                 </nav>
+
 
                 {/* Hamburger Icon - Mobile */}
                 <button
@@ -60,6 +70,16 @@ export default function Header({ pages }: Props) {
                 </div>
 
                 <nav className="flex flex-col p-4 space-y-4 text-gray-700 text-base">
+                    {/* Add your static "Projects" link */}
+                    <Link
+                        href="/"
+                        onClick={() => setMenuOpen(false)}
+                        className="hover:underline hover:text-black transition-colors duration-200"
+                    >
+                        Projects
+                    </Link>
+
+                    {/* Dynamically rendered pages */}
                     {pages.map((page) => (
                         <Link
                             key={page._id}
@@ -72,10 +92,11 @@ export default function Header({ pages }: Props) {
                     ))}
                 </nav>
 
+
                 {/* Social Links */}
-                <div className="mt-6 flex justify-center gap-4 text-gray-500">
+                <div className="mt-6 flex justify-center gap-4 text-gray-400">
                     <a
-                        href="https://twitter.com/yourhandle"
+                        href="https://twitter.com/adeomosarumi"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Twitter"
@@ -83,7 +104,7 @@ export default function Header({ pages }: Props) {
                         <Twitter size={20} />
                     </a>
                     <a
-                        href="https://instagram.com/yourhandle"
+                        href="https://instagram.com/dapo_sarumi"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
