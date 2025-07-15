@@ -60,17 +60,17 @@ export default function Header({ pages }: Props) {
 
             {/* Sliding Side Menu - Mobile Only */}
             <div
-                className={`fixed top-0 left-0 h-full w-64 shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"
+                className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"
                     }`}
             >
                 <div className="p-4 flex items-center justify-between border-b">
-                    <span className="text-xl font-bold">Menu</span>
+                    <span className="text-xl text-gray-700 font-bold">Menu</span>
                     <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
                         <X size={24} />
                     </button>
                 </div>
 
-                <nav className="flex flex-col p-4 space-y-4 text-base">
+                <nav className="flex flex-col p-4 space-y-4 text-gray-700 text-base">
                     {/* Add your static "Projects" link */}
                     <Link
                         href="/"
@@ -86,7 +86,7 @@ export default function Header({ pages }: Props) {
                             key={page._id}
                             href={`/${page.slug}`}
                             onClick={() => setMenuOpen(false)}
-                            className="hover:underline transition-colors duration-200"
+                            className="hover:underline transition-colors text-gray-700 duration-200"
                         >
                             {page.title}
                         </Link>
