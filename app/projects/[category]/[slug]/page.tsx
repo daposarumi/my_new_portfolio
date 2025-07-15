@@ -5,11 +5,12 @@ import Image from "next/image";
 import { PortableText } from "next-sanity";
 
 type Props = {
-    params: { slug: string; category: string };
+    params: Promise<{ slug: string; category: string }>;
 };
 
 export default async function ProjectPage({ params }: Props) {
-    const { slug, category } = params;
+    const { slug, category } = await params;
+
 
     const project: Project | null = await getProjectBySlug(slug);
     if (!project) return notFound();

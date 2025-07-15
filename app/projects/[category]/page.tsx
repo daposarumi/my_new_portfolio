@@ -3,11 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 type Props = {
-    params: { category: string };
+    params: Promise<{ category: string }>;
 };
 
 export default async function CategoryPage({ params }: Props) {
-    const decodedCategory = decodeURIComponent(params.category);
+    const { category } = await params;
+    const decodedCategory = decodeURIComponent(category);
     const projects = await getProjectsByCategory(decodedCategory);
 
     return (
@@ -35,7 +36,7 @@ export default async function CategoryPage({ params }: Props) {
                         )}
 
                         <Link
-                            href={`/projects/${params.category}/${project.slug}`}
+                            href={`/projects/${category}/${project.slug}`}
                             className="mt-2 block text-xs text-gray-500 font-bold hover:text-black transition-colors duration-200"
                         >
                             {project.name}
