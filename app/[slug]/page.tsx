@@ -2,11 +2,12 @@ import { getPage } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
+type Props = {
+    params: { slug: string };
+};
 
-// ✅ Correct way to type dynamic routes in the App Router
-export default async function Page({ params }: { params: { slug: string } }) {
-    const slug = params.slug;
-    const page = await getPage(slug);
+export default async function Page({ params }: Props) {
+    const page = await getPage(params.slug);
 
     if (!page) {
         return <div className="text-center py-20 text-red-500">Page not found</div>;

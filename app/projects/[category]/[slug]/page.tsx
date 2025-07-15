@@ -8,8 +8,8 @@ type Props = {
     params: { slug: string; category: string };
 };
 
-export default async function ProjectPage(props: Props) {
-    const { slug, category } = props.params;
+export default async function ProjectPage({ params }: Props) {
+    const { slug, category } = params;
 
     const project: Project | null = await getProjectBySlug(slug);
     if (!project) return notFound();
@@ -23,8 +23,7 @@ export default async function ProjectPage(props: Props) {
     const galleryImages = isDocPhoto
         ? [
             ...(mainImageUrl ? [{ asset: { url: mainImageUrl } }] : []),
-            ...(project.images?.filter((img) => img.asset?.url !== mainImageUrl) ||
-                []),
+            ...(project.images?.filter((img) => img.asset?.url !== mainImageUrl) || []),
         ]
         : [];
 
@@ -39,7 +38,6 @@ export default async function ProjectPage(props: Props) {
             {/* 📸 DOCUMENTARY PHOTO — Horizontal Gallery */}
             {isDocPhoto && (
                 <>
-                    {/* First "slide" with text */}
                     <div className="snap-start shrink-0 w-[40vw] flex">
                         <div className="max-w-xl">
                             <h1 className="text-2xl text-gray-600 mb-6">{project.name}</h1>
@@ -51,7 +49,6 @@ export default async function ProjectPage(props: Props) {
                         </div>
                     </div>
 
-                    {/* Gallery images */}
                     {galleryImages.map((imgObj, index) => (
                         <div
                             key={index}

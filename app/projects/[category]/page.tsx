@@ -6,9 +6,8 @@ type Props = {
     params: { category: string };
 };
 
-export default async function CategoryPage(props: Props) {
-    const { category } = props.params;
-    const decodedCategory = decodeURIComponent(category);
+export default async function CategoryPage({ params }: Props) {
+    const decodedCategory = decodeURIComponent(params.category);
     const projects = await getProjectsByCategory(decodedCategory);
 
     return (
@@ -36,7 +35,7 @@ export default async function CategoryPage(props: Props) {
                         )}
 
                         <Link
-                            href={`/projects/${category}/${project.slug}`}
+                            href={`/projects/${params.category}/${project.slug}`}
                             className="mt-2 block text-xs text-gray-500 font-bold hover:text-black transition-colors duration-200"
                         >
                             {project.name}
