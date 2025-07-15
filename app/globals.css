@@ -35,3 +35,8 @@ body {
   margin-bottom: 1.25rem;
   /* adjust spacing */
 }
+
+/* globals.css */
+html {
+  color-scheme: light;
+}
