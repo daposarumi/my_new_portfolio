@@ -13,7 +13,7 @@ export default async function CategoryPage({ params }: Props) {
 
     return (
         <div>
-            <h1 className="text-2xl text-gray-600 mb-10">
+            <h1 className="text-2xl mb-10">
                 {decodedCategory
                     .split("-")
                     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

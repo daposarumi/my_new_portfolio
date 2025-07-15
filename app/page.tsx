@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div>
-      <h2 className="text-2xl text-gray-600">
+      <h2 className="text-2xl">
         Web Creator. Writer. Photographer.
       </h2>
 

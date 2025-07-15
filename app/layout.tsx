@@ -37,7 +37,7 @@ export default async function RootLayout({
   const pages = await getPages();
 
   return (
-    <html lang="en" className="bg-white">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.className} antialiased flex flex-col min-h-screen`}
       >
