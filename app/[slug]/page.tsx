@@ -3,11 +3,12 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
 type Props = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>; // ✅ Now matches what Next expects
 };
 
 export default async function Page({ params }: Props) {
-    const page = await getPage(params.slug);
+    const { slug } = await params; // ✅ Destructure after awaiting
+    const page = await getPage(slug);
 
     if (!page) {
         return <div className="text-center py-20 text-red-500">Page not found</div>;
