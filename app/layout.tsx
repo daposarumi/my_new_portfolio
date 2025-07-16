@@ -52,7 +52,7 @@ export default async function RootLayout({
         <footer className="text-center text-gray-500 text-xs py-2">
           &copy;{" "}
           <a
-            href="#johnnnn"
+            href="#johnnn"
             className="hover:text-black hover:underline transition-colors duration-200"
           >
             Dapo Sarumi
