@@ -129,7 +129,7 @@ export async function generateMetadata({
             title: project.name,
             description: fallbackDescription,
             images: project.image ? [project.image] : [],
-            type: "website",
+            type: "article",
         },
         twitter: {
             card: "summary_large_image",

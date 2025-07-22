@@ -58,10 +58,8 @@ type Props = {
     params: Promise<{ category: string }>;
 };
 
-// ✅ Metadata generator with awaited params
-export async function generateMetadata({
-    params,
-}: Props): Promise<Metadata> {
+// ✅ Metadata generator with awaited params and project image
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { category } = await params;
     const decodedCategory = decodeURIComponent(category);
 
@@ -69,18 +67,32 @@ export async function generateMetadata({
         decodedCategory
             .split("-")
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" ") + " Projects";
+            .join(" ");
+
+    const projects = await getProjectsByCategory(decodedCategory);
+    const imageUrl = projects[0]?.image || "/fallback.jpg"; // fallback if no project
 
     return {
         title,
         description: `Browse projects under the "${decodedCategory}" category.`,
         openGraph: {
             title,
-            description: `Explore visual stories and works filed under "${decodedCategory}".`,
+            description: `Explore stories and works filed under "${decodedCategory}".`,
+            images: [
+                {
+                    url: imageUrl,
+                    width: 1200,
+                    height: 630,
+                    alt: `${title} Preview`,
+                },
+            ],
+            type: "website",
         },
         twitter: {
             title,
-            description: `Explore visual stories and works filed under "${decodedCategory}".`,
+            description: `Explore stories and works filed under "${decodedCategory}".`,
+            images: [imageUrl],
+            card: "summary_large_image",
         },
     };
 }
