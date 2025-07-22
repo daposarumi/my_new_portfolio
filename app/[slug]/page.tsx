@@ -44,14 +44,14 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 type Props = {
-    params: Promise<{ slug: string }>;
+    params: Promise<{ slug: string }>; // ✅ params is a Promise
 };
 
-// ✅ Generate metadata for each dynamic slug
+// ✅ Corrected to match the Promise-based params
 export async function generateMetadata({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
     const { slug } = await params;
     const page = await getPage(slug);
