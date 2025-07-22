@@ -55,14 +55,14 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 type Props = {
-    params: { category: string }; // ✅ NOT a Promise
+    params: Promise<{ category: string }>;
 };
 
-// ✅ Correct generateMetadata usage
-export async function generateMetadata(
-    { params }: Props
-): Promise<Metadata> {
-    const { category } = params;
+// ✅ Metadata generator with awaited params
+export async function generateMetadata({
+    params,
+}: Props): Promise<Metadata> {
+    const { category } = await params;
     const decodedCategory = decodeURIComponent(category);
 
     const title =
@@ -86,7 +86,7 @@ export async function generateMetadata(
 }
 
 export default async function CategoryPage({ params }: Props) {
-    const { category } = params;
+    const { category } = await params;
     const decodedCategory = decodeURIComponent(category);
     const projects = await getProjectsByCategory(decodedCategory);
 
