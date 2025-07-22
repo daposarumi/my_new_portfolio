@@ -135,7 +135,8 @@ export async function generateMetadata({
                         url: urlFor(project.image)
                             .width(1200)
                             .height(630)
-                            .fit("max") // Keeps full image, scales to fit
+                            .fit("crop")
+                            .crop("top") // Keeps full image, scales to fit
                             .auto("format")
                             .url(),
                         width: 1200,
