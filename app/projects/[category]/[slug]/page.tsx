@@ -129,14 +129,44 @@ export async function generateMetadata({
         openGraph: {
             title: project.name,
             description: fallbackDescription,
-            images: project.image ? [urlFor(project.image).width(1200).height(630).url()] : [],
+            images: project.image
+                ? [
+                    {
+                        url: urlFor(project.image)
+                            .width(1200)
+                            .height(630)
+                            .fit("max") // Keeps full image, scales to fit
+                            .auto("format")
+                            .url(),
+                        width: 1200,
+                        height: 630,
+                        alt: project.name,
+                    },
+                ]
+                : [],
+
             type: "article",
         },
         twitter: {
             card: "summary_large_image",
             title: project.name,
             description: fallbackDescription,
-            images: project.image ? [urlFor(project.image).width(1200).height(630).url()] : [],
+            images: project.image
+                ? [
+                    {
+                        url: urlFor(project.image)
+                            .width(1200)
+                            .height(630)
+                            .fit("max") // Keeps full image, scales to fit
+                            .auto("format")
+                            .url(),
+                        width: 1200,
+                        height: 630,
+                        alt: project.name,
+                    },
+                ]
+                : [],
+
         },
     };
 
