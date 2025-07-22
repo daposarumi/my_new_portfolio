@@ -101,6 +101,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { Metadata } from "next";
+import { urlFor } from "@/public/lib/sanityImage";
 
 // 👇 Generate metadata dynamically per project
 export async function generateMetadata({
@@ -128,16 +129,17 @@ export async function generateMetadata({
         openGraph: {
             title: project.name,
             description: fallbackDescription,
-            images: project.image ? [project.image] : [],
+            images: project.image ? [urlFor(project.image).width(1200).height(630).url()] : [],
             type: "article",
         },
         twitter: {
             card: "summary_large_image",
             title: project.name,
             description: fallbackDescription,
-            images: project.image ? [project.image] : [],
+            images: project.image ? [urlFor(project.image).width(1200).height(630).url()] : [],
         },
     };
+
 }
 
 // 👇 Main page component
