@@ -4,6 +4,8 @@ import "./globals.css";
 import { getPages } from "@/sanity/sanity-utils";
 import Header from "./components/header";
 
+
+const currentYear = new Date().getFullYear();
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -49,6 +51,8 @@ export default async function RootLayout({
           <main className="pt-5">{children}</main>
         </div>
 
+
+
         <footer className="text-center text-gray-500 text-xs py-2">
           &copy;{" "}
           <a
@@ -57,8 +61,7 @@ export default async function RootLayout({
           >
             Dapo Sarumi
           </a>
-          , {new Date().getFullYear()}.
-
+          , {currentYear}.
         </footer>
 
       </body>
